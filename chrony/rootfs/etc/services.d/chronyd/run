@@ -1,4 +1,4 @@
-#!/command/with-contenv bashio
+#!/usr/bin/with-contenv bashio
 set -Eeuo pipefail
 
 CONF="/etc/chrony/chrony.conf"
