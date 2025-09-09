@@ -1,7 +1,7 @@
 name: "Chrony NTP Server (with NTS client)"
 slug: "chrony-nts"
 description: "Secure NTP server for your LAN; optionally authenticates upstream time with NTS."
-version: "1.0.0-beta.1"
+version: "1.0.0-beta.2"
 arch:
   - aarch64
   - amd64
@@ -26,14 +26,9 @@ options:
   extra_config: ""                     # appended verbatim to chrony.conf (advanced)
 
 schema:
-  mode:
-    type: string
-    enum:
-      - server
-      - pool
+  mode: list(server|pool)
   ntp_pool: str?
   ntp_server:
-    - str
     - str
   allow: str
   set_system_clock: bool
