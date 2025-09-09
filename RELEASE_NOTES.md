@@ -1,3 +1,7 @@
+## chrony-nts 1.0.0-beta.5
+
+- Fix startup failure caused by outdated `/command/with-contenv` path.
+
 ## chrony-nts 1.0.0-beta.1
 
 **Pre-release (beta)**
