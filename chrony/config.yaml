@@ -1,7 +1,7 @@
 name: "Chrony NTP Server (with NTS client)"
 slug: "chrony-nts"
 description: "Secure NTP server for your LAN; optionally authenticates upstream time with NTS."
-version: "1.0.0-beta.2"
+version: "1.0.0-beta.3"
 arch:
   - aarch64
   - amd64
