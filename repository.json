@@ -1,6 +1,6 @@
 {
-  "name": "Ofelia Labs Add-ons",
+  "name": "Ofelia Labs Add-ons (beta)",
   "url": "https://github.com/ofelia-labs/ha-addon-chrony-nts",
   "maintainer": "Ofelia Labs",
-  "slug": "ofelia-labs"
+  "render_readme": true
 }
