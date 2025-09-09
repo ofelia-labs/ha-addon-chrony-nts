@@ -14,6 +14,4 @@ RUN apk add --no-cache chrony ca-certificates \
 # Bring in s6 services and init scripts
 COPY rootfs/ /
 
-# s6-overlay entrypoint
-
-ENTRYPOINT ["/init"]
+# Use the base image's built-in /init entrypoint (s6-overlay)

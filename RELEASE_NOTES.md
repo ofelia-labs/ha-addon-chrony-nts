@@ -1,3 +1,7 @@
+## chrony-nts 1.0.0-beta.6
+
+- Fix s6 start error by relying on base image's default `/init` entrypoint.
+
 ## chrony-nts 1.0.0-beta.5
 
 - Fix startup failure caused by outdated `/command/with-contenv` path.
