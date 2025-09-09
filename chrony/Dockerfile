@@ -15,3 +15,5 @@ RUN apk add --no-cache chrony ca-certificates \
 COPY rootfs/ /
 
 # s6-overlay entrypoint
+
+ENTRYPOINT ["/init"]
