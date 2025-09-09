@@ -5,7 +5,7 @@ FROM ${BUILD_FROM}
 # Use ash; fail fast
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
-# Install chrony (with NTS support in Alpine builds) and CA roots
+# Install chrony (with NTS support in Alpine) and CA roots
 RUN apk add --no-cache chrony ca-certificates \
     && update-ca-certificates \
     && mkdir -p /data/chrony \
@@ -14,4 +14,5 @@ RUN apk add --no-cache chrony ca-certificates \
 # Bring in s6 services and init scripts
 COPY rootfs/ /
 
-# Use the base image's built-in /init entrypoint (s6-overlay)
+# s6-overlay MUST be PID 1
+CMD ["/init"]
