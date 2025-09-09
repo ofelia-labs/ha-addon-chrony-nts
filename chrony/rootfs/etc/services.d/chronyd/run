@@ -1,0 +1,12 @@
+#!/command/with-contenv bashio
+set -Eeuo pipefail
+
+CONF="/etc/chrony/chrony.conf"
+FLAGS="-d -f $CONF"
+
+if bashio::config.false 'set_system_clock'; then
+  FLAGS="$FLAGS -x"
+  bashio::log.info "Running with -x (no host clock adjustment)."
+fi
+
+exec chronyd $FLAGS

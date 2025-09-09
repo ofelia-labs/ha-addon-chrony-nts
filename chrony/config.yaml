@@ -1,0 +1,37 @@
+name: "Chrony NTP Server (with NTS client)"
+slug: "chrony-nts"
+description: "Secure NTP server for your LAN; optionally authenticates upstream time with NTS."
+version: "1.0.0-beta.1"
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+startup: application
+boot: auto
+host_network: true
+
+options:
+  mode: server                         # "server" uses ntp_server; "pool" uses ntp_pool
+  ntp_pool: pool.ntp.org
+  ntp_server:
+    - time.cloudflare.com              # Examples (NTS-capable)
+    - nts.time.nl
+    - nts.netnod.se
+  allow: "192.168.0.0/16,10.0.0.0/8,fd00::/8"   # comma or space separated; safe LAN defaults
+  set_system_clock: true               # false => serve only; don't steer host clock
+  use_nts: true  # enable NTS client by default (set to false to use plain NTP upstream)
+  local_fallback: false                # enables 'local stratum 10' only if you opt in
+  extra_config: ""                     # appended verbatim to chrony.conf (advanced)
+
+schema:
+  mode: list(server|pool)
+  ntp_pool: str?
+  ntp_server:
+    - str
+  allow: str
+  set_system_clock: bool
+  use_nts: bool
+  local_fallback: bool
+  extra_config: str?
