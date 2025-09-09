@@ -26,9 +26,14 @@ options:
   extra_config: ""                     # appended verbatim to chrony.conf (advanced)
 
 schema:
-  mode: list(server|pool)
+  mode:
+    type: string
+    enum:
+      - server
+      - pool
   ntp_pool: str?
   ntp_server:
+    - str
     - str
   allow: str
   set_system_clock: bool
