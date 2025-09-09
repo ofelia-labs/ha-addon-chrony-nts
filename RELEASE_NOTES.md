@@ -1,15 +1,9 @@
-## chrony-nts 1.0.0-beta.1
+## chrony-nts (Pre-release)
 
-**Pre-release (beta)**
+- Ensure s6-overlay is PID 1 (CMD ["/init"]) to fix suexec error.
+- Normalize init script shebangs and executable bits.
+- No functional changes beyond startup reliability hardening.
 
-- Initial beta release of Chrony add-on with **NTS client** support (RFC 8915).
-- Hardened config generation, conservative defaults, and minimal docs.
-- LAN clients use classic NTP; upstream can be authenticated via NTS (e.g., `time.cloudflare.com`).
-- Expect rapid iteration; interfaces may change before 1.0.0.
-
-**Verification**
-- In the add-on container: `chronyc sources` and `chronyc -N authdata` (look for non-zero KeyIDs).
-- Ensure outbound **TCP/4460** and **UDP/123** from HA host.
-
-**Security & risk**
-- Pre-release; use at your own risk. Not for safety-critical systems. See README disclaimer.
+Verify after install:
+- Logs start cleanly (no "s6-overlay-suexec: fatal: can only run as pid 1").
+- `chronyc -N sources` and `chronyc -N authdata` show NTS with non-zero KeyID.

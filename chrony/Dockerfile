@@ -16,4 +16,4 @@ COPY rootfs/ /
 
 # s6-overlay entrypoint
 
-ENTRYPOINT ["/init"]
+CMD ["/init"]
